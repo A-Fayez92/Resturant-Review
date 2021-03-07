@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<center>
+    <div class="col-md-7">
+
+        <h4>Add Reviews Of {{resturant.res_name}}</h4>
+
+        <hr>
+        <div class="card card-body">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <span class="input-group-text">{{form.title.label}}<i class="fas fa-user"></i></span>
+                    </div>
+                    {{form.title}}
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <span class="input-group-text">{{form.content.label}}<i class="fas fa-user"></i></span>
+                    </div>
+                    {{form.content}}
+                </div>
+                <div style="display:none">
+                    {{form.author}} {{form.resturant}}
+                </div>
+
+
+
+
+
+
+                <hr>
+
+
+                <input class="btn btn-sm btn-info" type="submit" name="Submit">
+                <td><a class="btn btn-sm btn-primary" href="{% url 'home' %}">Cancel</a></td>
+            </form>
+
+
+        </div>
+
+    </div>
+</center>
+{% endblock %}

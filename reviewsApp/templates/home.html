@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<center>
+    <div class="col-md-7">
+
+        <h4>Resturant Reviews </h4>
+
+        <hr>
+        <div class="card card-body">
+
+            <table class="table table-sm">
+                <tr>
+                    <th>Resturant</th>
+                    <th>Add Review</th>
+                    <th>View Reviews</th>
+
+                </tr>
+
+                {% for resturant in res %}
+                <tr>
+                    <td><b>
+                            {{resturant.res_name}}
+                        </b></td>
+                    <td><a class="btn btn-sm btn-primary" href="{% url 'add_review' resturant.id %}">Add</a></td>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'view_review' resturant.id %}">View</a></td>
+
+
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+
+    </div>
+</center>
+{% endblock %}
